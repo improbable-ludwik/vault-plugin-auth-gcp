@@ -24,7 +24,7 @@ func genExtractZonesFn(igz map[string][]string, boundInstanceGroups []string) fu
 		for k, v := range l.Items {
 			zone, err := zoneFromSelfLink(k)
 			if err != nil {
-				return err
+				continue
 			}
 			for _, g := range v.InstanceGroups {
 				if strutil.StrListContains(boundInstanceGroups, g.Name) {
